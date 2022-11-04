@@ -9,16 +9,17 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @livewireStyles
 
 </head>
-<body class="antialiased bg-background-surface font-brand font-light">
+    <body class="antialiased bg-background-surface font-brand font-light">
 
 
-<div class="flex flex-row"><!-- Main wrapper -->
-    {{ $slot }}
-</div>
+    <div class="flex flex-row"><!-- Main wrapper -->
+        {{ $slot }}
+    </div>
 
-
+    @livewireScripts
 </body>
 </html>
 

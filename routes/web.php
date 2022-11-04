@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    flash()->addSuccess('Data has been saved successfully!');
     return view('dashboard');
 });
 
