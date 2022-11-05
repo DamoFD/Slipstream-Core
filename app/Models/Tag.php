@@ -17,6 +17,11 @@ class Tag extends Model
         return $this->morphTo();
     }
 
+    public static function findByTag($tag)
+    {
+        return self::where('tag', $tag)->firstOrFail();
+    }
+
     public static function create(array $attributes = []): Model|\Illuminate\Database\Eloquent\Builder
     {
         // TODO: improve
@@ -26,4 +31,5 @@ class Tag extends Model
 
         return $model;
     }
+
 }

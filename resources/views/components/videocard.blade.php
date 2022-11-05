@@ -12,7 +12,7 @@
                 <div>
                     <!-- Title -->
                     <p class="text-lg">
-                        <a href="" target="_blank"><b>{{ $tag->title }}</b></a>
+                        <a href="{{ route('tag.show', $tag->tag) }}" target="_blank"><b>{{ $tag->title }}</b></a>
                     </p>
                     <!-- Description -->
                     <p class="text-sm text-de">
