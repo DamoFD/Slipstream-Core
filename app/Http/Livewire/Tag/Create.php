@@ -2,9 +2,10 @@
 
 namespace App\Http\Livewire\Tag;
 
-use App\Helpers\File;
 use App\Helpers\FileHelper;
 use App\Models\Tag;
+use App\Models\Video;
+use FFMpeg;
 use LivewireUI\Modal\ModalComponent;
 
 use Livewire\WithFileUploads;
@@ -44,7 +45,31 @@ class Create extends ModalComponent
 
         if(FileHelper::isVideo($this->file->path())){
 
+            $ffmpeg = FFMpeg::openUrl($this->file->path());
+
+
+            $media = Video::create([
+                'file' => $hash,
+                'info'      => [
+                    'size'              => round($this->file->getSize()/1000000), // to MB
+                    'extension'         => $this->file->extension(),
+                    'codec_name'        => $ffmpeg->getVideoStream()->get('codec_name'),
+                    'codec_long_name'   => $ffmpeg->getVideoStream()->get('codec_long_name'),
+                    'bit_rate'          => $ffmpeg->getVideoStream()->get('bit_rate'),
+                    'width'             => $ffmpeg->getVideoStream()->get('width'),
+                    'height'            => $ffmpeg->getVideoStream()->get('height'),
+                    'r_frame_rate'      => $ffmpeg->getVideoStream()->get('r_frame_rate'),
+                    'avg_frame_rate'    => $ffmpeg->getVideoStream()->get('avg_frame_rate'),
+                    'tags'              => $ffmpeg->getVideoStream()->get('tags'),]
+            ]);
+
+            $ffmpeg->getFrameFromSeconds(0.1)->export()->toDisk('tags')->save($tag->tag.'/thumb.jpg');
+
         }
+
+        $this->file->storeAs($tag->tag, $hash, 'tags');
+        $media->tag()->save($tag);
+
 
         $this->dispatchBrowserEvent('resetform');
         $this->emit('refreshTags');

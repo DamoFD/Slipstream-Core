@@ -43,6 +43,12 @@ return [
             'visibility' => 'public',
             'throw' => false,
         ],
+        'tags' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/tags'),
+            'url' => env('APP_URL').'/storage/tags',
+            'visibility' => 'public',
+        ],
 
         's3' => [
             'driver' => 's3',

@@ -6,15 +6,16 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
+        "ext-fileinfo": "*",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
         "livewire/livewire": "^2.10",
+        "pbmedia/laravel-ffmpeg": "^8.1",
         "php-flasher/flasher-laravel": "^1.7",
         "php-flasher/flasher-toastr-laravel": "^1.7",
-        "wire-elements/modal": "^1.0",
-      "ext-fileinfo": "*"
+        "wire-elements/modal": "^1.0"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.12",

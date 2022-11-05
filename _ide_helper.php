@@ -17642,6 +17642,43 @@
      
 }
 
+    namespace ProtoneMedia\LaravelFFMpeg\Support { 
+            /**
+     * 
+     *
+     * @method static \ProtoneMedia\LaravelFFMpeg\MediaOpener fromDisk($disk)
+     * @method static \ProtoneMedia\LaravelFFMpeg\MediaOpener fromFilesystem(\Illuminate\Contracts\Filesystem\Filesystem $filesystem)
+     * @method static \ProtoneMedia\LaravelFFMpeg\MediaOpener open($path)
+     * @method static \ProtoneMedia\LaravelFFMpeg\MediaOpener openUrl($path, array $headers)
+     * @method static \ProtoneMedia\LaravelFFMpeg\MediaOpener cleanupTemporaryFiles()
+     * @see \ProtoneMedia\LaravelFFMpeg\MediaOpener
+     */ 
+        class FFMpeg {
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function new()
+        {
+                        /** @var \ProtoneMedia\LaravelFFMpeg\Support\MediaOpenerFactory $instance */
+                        return $instance->new();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function dynamicHLSPlaylist()
+        {
+                        /** @var \ProtoneMedia\LaravelFFMpeg\Support\MediaOpenerFactory $instance */
+                        return $instance->dynamicHLSPlaylist();
+        }
+         
+    }
+     
+}
+
     namespace Flasher\Laravel\Facade { 
             /**
      * 
@@ -22193,6 +22230,7 @@ namespace  {
             class View extends \Illuminate\Support\Facades\View {}
             class Vite extends \Illuminate\Support\Facades\Vite {}
             class Livewire extends \Livewire\Livewire {}
+            class FFMpeg extends \ProtoneMedia\LaravelFFMpeg\Support\FFMpeg {}
             class Flasher extends \Flasher\Laravel\Facade\Flasher {}
             class Toastr extends \Flasher\Toastr\Laravel\Facade\Toastr {}
             class Flare extends \Spatie\LaravelIgnition\Facades\Flare {}

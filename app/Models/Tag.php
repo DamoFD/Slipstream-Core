@@ -13,6 +13,10 @@ class Tag extends Model
 
     protected $guarded = [];
 
+    public function taggable(){
+        return $this->morphTo();
+    }
+
     public static function create(array $attributes = []): Model|\Illuminate\Database\Eloquent\Builder
     {
         // TODO: improve
