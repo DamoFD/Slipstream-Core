@@ -22,14 +22,15 @@
                 <div class="flex self-center h-5/6">
 
                     <ul class="flex text-3xl">
-                        <li class="px-1 self-center cursor-pointer transition-all hover:text-status-warning-500"><i
-                                class='bx bxs-edit-alt'></i></li>
-                        <li class="px-1 self-center cursor-pointer transition-all hover:text-brand-primary-500"><i
-                                class='bx bx-cloud-download'></i>
+
+                        <li class="px-1 self-center cursor-pointer transition-all hover:text-status-warning-500">
+                            <box-icon color="white" name="edit-alt"></box-icon></li>
+                        <li class="px-1 self-center cursor-pointer transition-all hover:text-brand-primary-500">
+                            <box-icon color="white" name="cloud-download"></box-icon>
                         <li class="px-1 self-center cursor-pointer transition-all hover:text-status-success-500"
                             data-tooltip-target="tooltip-copy"
                             onclick="">
-                            <i class='bx bxs-copy-alt'></i>
+                            <box-icon color="white" name="copy-alt"></box-icon>
                         </li>
 
                     </ul>
