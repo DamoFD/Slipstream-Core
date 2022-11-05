@@ -2,6 +2,8 @@
 
 namespace App\Http\Livewire\Tag;
 
+use App\Helpers\File;
+use App\Helpers\FileHelper;
 use App\Models\Tag;
 use LivewireUI\Modal\ModalComponent;
 
@@ -39,6 +41,10 @@ class Create extends ModalComponent
             'title' => $title,
             'description' => $this->description,
         ]);
+
+        if(FileHelper::isVideo($this->file->path())){
+
+        }
 
         $this->dispatchBrowserEvent('resetform');
         $this->emit('refreshTags');
