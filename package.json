@@ -16,6 +16,7 @@
         "vite": "^3.0.0"
     },
     "dependencies": {
+        "@alpinejs/focus": "^3.10.5",
         "boxicons": "^2.1.4"
     }
 }

@@ -12,7 +12,8 @@
         "laravel/tinker": "^2.7",
         "livewire/livewire": "^2.10",
         "php-flasher/flasher-laravel": "^1.7",
-        "php-flasher/flasher-toastr-laravel": "^1.7"
+        "php-flasher/flasher-toastr-laravel": "^1.7",
+        "wire-elements/modal": "^1.0"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.12",
