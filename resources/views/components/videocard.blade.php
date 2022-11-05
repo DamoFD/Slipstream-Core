@@ -12,11 +12,11 @@
                 <div>
                     <!-- Title -->
                     <p class="text-lg">
-                        <a href="" target="_blank"><b>Title</b></a>
+                        <a href="" target="_blank"><b>{{ $tag->title }}</b></a>
                     </p>
                     <!-- Description -->
                     <p class="text-sm text-de">
-                        Description
+                        {{ $tag->description }}
                     </p>
                 </div>
                 <div class="flex self-center h-5/6">
@@ -55,7 +55,7 @@
             </div>
         </div>
         <!-- Thumb -->
-        <img class="rounded-lg object-cover h-full w-full" src="{{ $message }}" alt="">
+        <img class="rounded-lg object-cover h-full w-full" src="https://picsum.photos/500/300" alt="">
 
     </div><!-- End Video Card -->
 

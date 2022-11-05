@@ -12,8 +12,7 @@
                     <li class="transition-all cursor-pointer hover:text-brand-red-500">Dashboard </li>
                     <li class="transition-all cursor-pointer hover:text-brand-primary-500">Settings</li>
                     <li class="transition-all cursor-pointer hover:text-brand-primary-500">Logout</li>
-                    <button onclick="Livewire.emit('openModal', 'tag.create')">Modal</button>
-                    <button onclick="Livewire.emit('openModal', 'edit-user')">Edit User</button>
+                    <button onclick="Livewire.emit('openModal', 'tag.create')">Upload</button>
                 </ul>
             </nav>
         </header>
