@@ -47,10 +47,8 @@
             </nav>
         </header>
 
-        <div class="grid gap-8 self-center mx-20 mt-8 lg:grid-cols-3 md:grid-cols-2"><!-- Videocards -->
-            <x-videocard message="https://picsum.photos/200/300" />
-            <x-videocard message="https://picsum.photos/200/300" />
-        </div>
+
+        <livewire:tag.show-cards />
 
         {{-- <div class="mx-20 mt-10"><!-- playlists -->
             <div class="text-xl font-medium mb-2 text-white">Playlists</div>

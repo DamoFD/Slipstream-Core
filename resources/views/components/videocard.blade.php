@@ -10,11 +10,13 @@
             <div class="bg-black opacity-80 flex justify-between rounded-b-lg text-opacity-100 text-white px-4 py-2">
                 <!-- Video Information -->
                 <div>
+                    <!-- Title -->
                     <p class="text-lg">
-                        <a href="" target="_blank"><b></b></a>
+                        <a href="" target="_blank"><b>Title</b></a>
                     </p>
+                    <!-- Description -->
                     <p class="text-sm text-de">
-
+                        Description
                     </p>
                 </div>
                 <div class="flex self-center h-5/6">
@@ -35,13 +37,15 @@
                 </div>
             </div>
 
+            <!-- Badges -->
             <div class="flex order-first h-full p-4 justify-between">
-                <!-- badges -->
+                <!-- Type -->
                 <div class="p-2 h-fit bg-black opacity-80 rounded-lg text-white text-opacity-100">
                     <span class="align-middle"><i class='bx bx-world'></i></span>
                     <span class="text-sm font-bold">HLS</span>
                 </div>
 
+                <!-- Quality -->
                 <div class="p-2 h-fit bg-black opacity-80 rounded-lg text-white text-opacity-100">
                     <span class="align-middle"><i class='bx bx-film'></i></span>
                     <span class="text-sm font-bold">1080P</span>
@@ -49,8 +53,8 @@
 
             </div>
         </div>
-        <img class="rounded-lg object-cover h-full w-full" src="{{ $message }}"
-             alt="">
+        <!-- Thumb -->
+        <img class="rounded-lg object-cover h-full w-full" src="{{ $message }}" alt="">
 
     </div><!-- End Video Card -->
 
