@@ -5,7 +5,16 @@ import focus from '@alpinejs/focus'
 
 import 'boxicons';
 
+import {livewire_hot_reload} from 'virtual:livewire-hot-reload'
+
+livewire_hot_reload();
+
+import jQuery from 'jquery';
+window.$ = jQuery;
+
+
 window.Alpine = Alpine;
 
 Alpine.start();
 Alpine.plugin(focus)
+

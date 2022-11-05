@@ -9,7 +9,7 @@
             <div class="self-center"><img src="img/logo.png" alt=""></div>
             <nav class="basis-1/6 bg-background-secondary rounded-md self-center text-base text-gray-200 py-2 px-4">
                 <ul class="flex justify-around gap-8 sm:gap-2">
-                    <li class="transition-all cursor-pointer hover:text-brand-primary-500">Dashboard </li>
+                    <li class="transition-all cursor-pointer hover:text-brand-red-500">Dashboard </li>
                     <li class="transition-all cursor-pointer hover:text-brand-primary-500">Settings</li>
                     <li class="transition-all cursor-pointer hover:text-brand-primary-500">Logout</li>
                     <button onclick="Livewire.emit('openModal', 'tag.create')">Modal</button>
