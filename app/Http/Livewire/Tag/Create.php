@@ -19,11 +19,11 @@ class Create extends ModalComponent
         return view('livewire.tag.create');
     }
 
-    public function updatedMedia()
+    public function updatedFile()
     {
         //TODO: If video -> Create thumb for preview
         $this->validate([
-            'media' => 'required|file',
+            'file' => 'required|file|mimetypes:video/mp4,video/mpeg,image/jpeg,image/png,image/bmp',
             'title' => 'nullable|string|max:50',
             'description' => 'nullable|string',
         ]);

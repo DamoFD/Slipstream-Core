@@ -13,8 +13,11 @@
                     <p class="text-center align-middle" id="dropmessage" onclick="document.querySelector('input[type=\'file\']').click();">Click to select file!</p>
                 </div>
 
+
+                @error('file') <span class="error" x-show="!isFinished" x-data="file=''">{{ $message }}</span> @enderror
                 <!-- File selected -->
                 <div x-show="file">
+
                     <!-- Form -->
                     <p class="text-center align-middle">
                         <input type="text" x-bind:placeholder="file" wire:model="title" id="title"><br>
@@ -32,6 +35,7 @@
                         <button wire:click.prevent="upload">Save media!</button>.
                         <button x-on:click.prevent="file = '', isFinished = 0" id="reset">Reset</button>
                     </div>
+
                 </div>
             </div>
         </div>
