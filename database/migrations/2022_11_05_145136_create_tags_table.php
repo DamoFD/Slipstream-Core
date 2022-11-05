@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('tag')->unique();
             $table->string('title')->nullable();
             $table->string('description')->nullable();
+            $table->string('thumb')->nullable();
             $table->integer('taggable_id')->nullable();
             $table->string('taggable_type')->nullable();
             $table->timestamps();
