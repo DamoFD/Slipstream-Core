@@ -24,7 +24,7 @@
                     <ul class="flex text-3xl">
 
                         <li class="px-1 self-center cursor-pointer transition-all hover:text-status-warning-500">
-                            <box-icon color="white" name="edit-alt"></box-icon></li>
+                            <box-icon color="white" name="edit-alt" animation="tada-hover" onclick="Livewire.emit('openModal', 'tag.edit', {{ json_encode([$tag->id]) }})"></box-icon></li>
                         <li class="px-1 self-center cursor-pointer transition-all hover:text-brand-primary-500">
                             <box-icon color="white" name="cloud-download"></box-icon>
                         <li class="px-1 self-center cursor-pointer transition-all hover:text-status-success-500"
