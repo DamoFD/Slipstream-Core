@@ -33,7 +33,7 @@ class Delete extends ModalComponent
             //Close edit modal too.
             $this->closeModal(); // TODO: Check proper fix for closing multiple modals
         }catch (Exception $e){
-            toastr()->addError('Something went wrong while deleting tag<br>'.$e->getMessage());
+            toastr()->addError('Something went wrong while deleting tag<br>Message: '.$e->getMessage());
         }
 
     }
