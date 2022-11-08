@@ -45,9 +45,10 @@ class TagController extends Controller
      * @param  \App\Models\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function show(Tag $tag)
+    public function show($tag)
     {
-        //
+        $tag = Tag::findByTag($tag);
+        return view('tag.show')->with(['tag'=>$tag]);
     }
 
     /**

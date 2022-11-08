@@ -17,3 +17,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('dashboard');
 });
+
+Route::get('/v/{tag}', [\App\Http\Controllers\TagController::class, 'show'])->name('tag.show'); // show video page
