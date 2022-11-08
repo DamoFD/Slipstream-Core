@@ -3,13 +3,13 @@
 namespace App\Http\Livewire\Tag;
 
 use App\Helpers\FileHelper;
+use App\Jobs\Tag\StoreFile;
 use App\Models\Tag;
 use App\Models\Video;
 use FFMpeg;
 use LivewireUI\Modal\ModalComponent;
 
 use Livewire\WithFileUploads;
-
 class Create extends ModalComponent
 {
     use WithFileUploads;
@@ -67,14 +67,23 @@ class Create extends ModalComponent
 
         }
 
-        $this->file->storeAs($tag->tag, $hash, 'tags');
-        $media->tag()->save($tag);
 
+        $media->tag()->save($tag);
 
         $this->dispatchBrowserEvent('resetform');
         $this->emit('refreshTags');
-        toastr()->addSuccess('Media uploaded!');
+        toastr()->addInfo('Tag will be available soon!');
         $this->closeModal();
+
+
+        $fileJob = [
+            'tag' => $tag->tag,
+            'name' => $hash,
+            'path' => $this->file->getRealPath(),
+        ];
+        StoreFile::dispatch($fileJob);
+
+
     }
 
     public static function closeModalOnClickAway(): bool
