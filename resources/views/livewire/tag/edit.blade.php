@@ -17,7 +17,7 @@
                     </div>
 
                     <div class="aspect-video py-8"><!-- Media frame -->
-                        <img class="rounded-lg w-full" src="media/stock4.jpg" alt="">
+                        <img class="rounded-lg w-full" src="{{ url("storage/tags/" . $tag->tag . "/thumb.jpg") }}" alt="">
                     </div>
                 </div>
 
