@@ -2,15 +2,16 @@
      x-on:livewire-upload-start="isUploading = true"
      x-on:livewire-upload-finish="isUploading = false, isFinished = true"
      x-on:livewire-upload-error="isUploading = false"
-     x-on:livewire-upload-progress="progress = $event.detail.progress"
-     class="upload-area bg-gray-700 text-opacity-100 text-gray-900 px-4 py-2 border-dashed border-8">
-    <div class="flex h-screen h-72">
-        <div class="m-auto">
-            <div class="">
+     x-on:livewire-upload-progress="progress = $event.detail.progress"outline-opa
+     class="upload-area bg-gray-900 text-opacity-100 text-gray-900 px-4 py-2 cursor-pointer"
+     onclick="document.querySelector('input[type=\'file\']').click();">
+    <div class="flex h-72">
+        <div class="flex justify-center items-center w-full">
                 <!-- Input -->
                 <div x-show="!file">
+                    <span class="flex justify-center mb-4"><box-icon name='download' color="white" animation="flashing-hover" size="lg"></box-icon></span>
                     <input id="file" hidden type="file" wire:model="file" x-ref="file" x-on:change="file = $refs.file.files[0].name">
-                    <p class="text-center align-middle" id="dropmessage" onclick="document.querySelector('input[type=\'file\']').click();">Click to select file!</p>
+                    <p id="dropmessage" ><span class="font-bold">Choose a file</span> or drag it here.</p>
                 </div>
 
 
@@ -35,8 +36,6 @@
                         <button wire:click.prevent="upload">Save media!</button>.
                         <button x-on:click.prevent="file = '', isFinished = 0" id="reset">Reset</button>
                     </div>
-
-                </div>
             </div>
         </div>
     </div>
