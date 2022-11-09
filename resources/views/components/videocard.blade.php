@@ -43,13 +43,13 @@
                 <!-- Type -->
                 <div class="p-2 h-fit bg-black opacity-80 rounded-lg text-white text-opacity-100">
                     <span class="align-middle"><i class='bx bx-world'></i></span>
-                    <span class="text-sm font-bold">{{ $tag->taggable->codec }}</span>
+{{--                    <span class="text-sm font-bold">{{ $tag->taggable->codec }}</span>--}}
                 </div>
 
                 <!-- Quality -->
                 <div class="p-2 h-fit bg-black opacity-80 rounded-lg text-white text-opacity-100">
                     <span class="align-middle"><i class='bx bx-film'></i></span>
-                    <span class="text-sm font-bold">{{ $tag->taggable->quality }}p</span>
+{{--                    <span class="text-sm font-bold">{{ $tag->taggable->quality }}p</span>--}}
                 </div>
 
             </div>
