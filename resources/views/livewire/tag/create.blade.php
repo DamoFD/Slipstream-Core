@@ -26,12 +26,18 @@
 
                     <!-- Uploading -->
                     <div x-show="isUploading">
-                        <p class="text-center align-middle">Uploading in progres..</p>
+                        <p class="text-center align-middle">Uploading in progress..</p>
                         <progress max="100" x-bind:value="progress"></progress>
                     </div>
 
                     <!-- Finished uploading -->
                     <div x-show="isFinished">
+                        <select name="type" id="type" autocomplete="off" x-model="type" wire:model="type">
+                            <option value="">Select option</option>
+                            <option value="1" selected="selected">None (Original file)</option>
+                            <option value="2">Optimized for web (x264)</option>
+                            <option value="3">Optimized for streaming (x264/HLS)</option>
+                        </select>
                         <button wire:click.prevent="upload">Save media!</button>.
                         <button x-on:click.prevent="file = '', isFinished = 0" id="reset">Reset</button>
                     </div>
