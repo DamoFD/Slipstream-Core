@@ -1,4 +1,4 @@
-<div class="bg-gray-900 text-opacity-100 text-gray-900 px-4">
+<div class="bg-neutral-900 text-white px-4">
     <div class="p-8">
         <div class="p-4 sm:px-6 sm:py-4"> <!-- Header -->
             <h1 class="text-4xl leading-6 font-light text-white">
