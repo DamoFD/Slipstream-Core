@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Jobs;
+namespace App\Jobs\Tag;
 
 use App\Models\Tag;
 use App\Models\Video;
 use FFMpeg;
 use FFMpeg\Format\Video\X264;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
@@ -41,14 +40,6 @@ class x264Optimization implements ShouldQueue
      */
     public function handle()
     {
-        // TODO: Qualities
-        $qualities = [
-            360 => [640, 360, '1000'],
-            720 => [1280, 720, '1000'],
-            1080 => [1920, 1080, '1000'],
-//            1440 => [2560, 1440, $this->settings['streaming_bitrates'][1440]],
-//            2160 => [3840, 2160, $this->settings['streaming_bitrates'][2160]]
-        ];
         $streamhash = Str::random(40);
 
         // Bitrates // TODO: Bitrates list
@@ -59,6 +50,7 @@ class x264Optimization implements ShouldQueue
         $midBitrateFormat = (new X264('libmp3lame', 'libx264'))->setKiloBitrate(101080); // 1080
         $highBitrateFormat = (new X264('libmp3lame', 'libx264'))->setKiloBitrate(101440); // 1440
 
+        //TODO: To Helper?
         preg_match('/livewire-tmp(.*)/', $this->path, $regex);
         FFMpeg::fromDisk('local')->open($regex[0])
             ->export()->onProgress(function ($percentage) {
@@ -69,6 +61,5 @@ class x264Optimization implements ShouldQueue
             'file' => $streamhash.'.mp4'
         ]);
         $media->tag()->save($this->tag);
-
     }
 }
