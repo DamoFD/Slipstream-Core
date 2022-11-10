@@ -4,6 +4,18 @@
 
 @layer components{
     .default-input{
-        @apply text-black;
+        @apply text-black rounded-md p-2 bg-neutral-200 border-transparent focus:border-transparent focus:ring-0;
+    }
+
+    .btn{
+        @apply rounded-md py-1 px-2 ;
+    }
+
+    .btn-primary{
+        @apply bg-[#00A3FE] font-medium;
+    }
+
+    .btn-alert{
+        @apply bg-red-600 font-medium
     }
 }
