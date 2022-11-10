@@ -3,12 +3,10 @@
 namespace App\Jobs\Tag;
 
 use App\Enums\VideoType;
-use App\Jobs\x264Optimization;
 use App\Models\Tag;
 use App\Models\Video;
 use FFMpeg;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
@@ -69,10 +67,10 @@ class StoreFile implements ShouldQueue
                 x264Optimization::dispatch($this->getJobStatusId(), $this->tag, $this->file['path']);
                 break;
             case VideoType::HLS():
+                StreamOptimization::dispatch($this->getJobStatusId(), $this->tag, $this->file['path']);
                 break;
             default:
                 throw new Exception('Wrong type');
-
         }
 
 
