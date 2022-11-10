@@ -13,7 +13,7 @@
     @livewireStyles
 
 </head>
-    <body class="antialiased bg-background-surface font-brand font-light">
+    <body class="antialiased bg-background-surface font-brand font-light bg-neutral-900">
 
 
     <div class="flex flex-row"><!-- Main wrapper -->
