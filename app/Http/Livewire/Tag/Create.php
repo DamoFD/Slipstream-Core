@@ -32,7 +32,6 @@ class Create extends ModalComponent
         ]);
     }
 
-
     public function upload()
     {
         $title  = $this->title ?? $this->file->getClientOriginalName();

@@ -3,43 +3,80 @@
      x-on:livewire-upload-finish="isUploading = false, isFinished = true"
      x-on:livewire-upload-error="isUploading = false"
      x-on:livewire-upload-progress="progress = $event.detail.progress"
-     class="upload-area bg-gray-700 text-opacity-100 text-gray-900 px-4 py-2 border-dashed border-8">
-    <div class="flex h-screen h-72">
-        <div class="m-auto">
-            <div class="">
-                <!-- Input -->
-                <div x-show="!file">
+     class="upload-area bg-neutral-900 text-white px-4 py-2">
+    <div class="flex h-full justify-center items-center">
+        <div class="w-3/4">
+
+            <!-- Input -->
+            <div x-show="!file">
+                <div class="my-20 flex justify-center items-center flex-col cursor-pointer">
+                    <span class="flex justify-center mb-4" onclick="document.querySelector('input[type=\'file\']').click();"><box-icon name='download' color="white" animation="flashing-hover" size="lg"></box-icon></span>
                     <input id="file" hidden type="file" wire:model="file" x-ref="file" x-on:change="file = $refs.file.files[0].name">
-                    <p class="text-center align-middle" id="dropmessage" onclick="document.querySelector('input[type=\'file\']').click();">Click to select file!</p>
+                    <div class="flex justify-center"><p id="dropmessage"><span class="font-bold">Choose a file</span> or drag it here.</p></div>
                 </div>
+            </div>
 
+            @error('file') <span class="error" x-show="!isFinished" x-data="file=''">{{ $message }}</span> @enderror
 
-                @error('file') <span class="error" x-show="!isFinished" x-data="file=''">{{ $message }}</span> @enderror
-                <!-- File selected -->
-                <div x-show="file">
-
-                    <!-- Form -->
-                    <p class="text-center align-middle">
-                        <input type="text" x-bind:placeholder="file" wire:model="title" id="title"><br>
-                        <textarea placeholder="Description..." wire:model="description"></textarea>
-                    </p>
-
-                    <!-- Uploading -->
-                    <div x-show="isUploading">
-                        <p class="text-center align-middle">Uploading in progress..</p>
-                        <progress max="100" x-bind:value="progress"></progress>
+            <!-- File selected -->
+            <div x-show="file">
+                <!-- Uploading -->
+                <div x-show="isUploading">
+                    <div class="my-10">
+                        <p class="text-center align-middle pt-4 font-bold">Uploading</p>
+                        {{-- <progress max="100" x-bind:value="progress"></progress> --}}
+                        {{-- Progress Bar --}}
+                        <div class="w-full" x-data="{ width: '50' }" x-init="$watch('width', value => { if (value > 100) { width = 100 } if (value == 0) { width = 10 } })">
+                            <div class="bg-neutral-800 rounded h-6 mt-2 w-full drop-shadow-lg" role="progressbar">
+                                <div
+                                    class="bg-[#00A3FE] rounded h-6 text-center text-white text-sm transition"
+                                    :style="`width: ${width}%; transition: width 2s;`"
+                                    x-text="`${width}%`"
+                                    >
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                </div>
+                <!-- Finished uploading -->
+                <div x-show="isFinished" >
+                    <div class="my-4">
+                        <div class="mb-4"> <!-- Header -->
+                            <h1 class="text-4xl font-light text-white">
+                                Save your media
+                            </h1>
+                        </div>
+                        <div class="grid grid-cols-2 gap-8">
+                            <div class="">
+                                <p class="mb-2"><label for="title" >Title</label></p>
+                                <p class="mb-4"><input type="text" x-bind:placeholder="file" wire:model="title" id="title" class="default-input w-full"></p>
+                                <p class="mb-2"><label for="description">Description</label></p>
+                                <p><textarea placeholder="Description..." rows="1" wire:model="description" class="default-input w-full"></textarea></p>
+                                <p class="mb-2"><label for="type">Type</label>
 
-                    <!-- Finished uploading -->
-                    <div x-show="isFinished">
-                        <select name="type" id="type" autocomplete="off" x-model="type" wire:model="type">
-                            <option value="">Select option</option>
-                            <option value="1" selected="selected">None (Original file)</option>
-                            <option value="2">Optimized for web (x264)</option>
-                            <option value="3">Optimized for streaming (x264/HLS)</option>
-                        </select>
-                        <button wire:click.prevent="upload">Save media!</button>.
-                        <button x-on:click.prevent="file = '', isFinished = 0" id="reset">Reset</button>
+                                    <select name="type" id="type" autocomplete="off" x-model="type" wire:model="type">
+                                        <option value="">Select option</option>
+                                        <option value="1" selected="selected">None (Original file)</option>
+                                        <option value="2">Optimized for web (x264)</option>
+                                        <option value="3">Optimized for streaming (x264/HLS)</option>
+                                    </select>
+                                </p>
+                            </div>
+                            <div class="flex justify-center items-center">
+                                <div class="rounded-md overflow-hidden">
+                                    <img src="https://dynaimage.cdn.cnn.com/cnn/q_auto,w_900,c_fill,g_auto,h_506,ar_16:9/http%3A%2F%2Fcdn.cnn.com%2Fcnnnext%2Fdam%2Fassets%2F220608021434-03-airbus-a330-into-yacht.jpg"
+                                         alt="" class="aspect-video">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-4 mb-4">
+                        <button wire:click.prevent="upload" class="btn btn-primary">
+                            <p>Save media</p>
+                        </button>
+                        <button x-on:click.prevent="file = '', isFinished = 0" id="reset" class="btn btn-alert">
+                            <p>Cancel</p>
+                        </button>
                     </div>
 
                 </div>
