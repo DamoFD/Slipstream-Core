@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Imtigger\LaravelJobStatus\JobStatus;
 use Str;
 
 
@@ -30,6 +31,10 @@ class Tag extends Model
         $model = static::query()->create($attributes);
 
         return $model;
+    }
+
+    public function job(){
+        return $this->hasOne(JobStatus::class)->latest();
     }
 
 }

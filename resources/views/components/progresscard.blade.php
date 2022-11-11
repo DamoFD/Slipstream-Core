@@ -1,7 +1,4 @@
-<div class="aspect-video" x-data="{ status: '{{ $tag->job->status }}' }">
-
-
-    {!! $tag->job->status !!}
+<div class="aspect-video">
     <div
         class="bg-white bg-opacity-10 flex relative rounded-lg z-0 aspect-video shadow-md transition-all duration-300 delay-75 hover:scale-[0.99]">
         <!-- Video Card -->
@@ -14,11 +11,9 @@
                 <div>
                     <!-- Title -->
                     <p class="text-lg">
-                        <a href="{{ route('tag.show', $tag->tag) }}" target="_blank"><b>{{ $tag->title }}</b></a>
                     </p>
                     <!-- Description -->
                     <p class="text-sm text-de">
-                        {{ $tag->description }}<span x-text="status"></span>
                     </p>
                 </div>
                 <div class="flex self-center h-5/6">
@@ -26,7 +21,7 @@
                     <ul class="flex text-3xl">
 
                         <li class="px-1 self-center cursor-pointer transition-all hover:text-status-warning-500">
-                            <box-icon color="white" name="edit-alt" animation="tada-hover" onclick="Livewire.emit('openModal', 'tag.edit', {{ json_encode([$tag->id]) }})"></box-icon></li>
+
                         <li class="px-1 self-center cursor-pointer transition-all hover:text-brand-primary-500">
                             <box-icon color="white" name="cloud-download"></box-icon>
                         <li class="px-1 self-center cursor-pointer transition-all hover:text-status-success-500"
@@ -57,7 +52,7 @@
             </div>
         </div>
         <!-- Thumb -->
-        <img class="rounded-lg object-cover h-full w-full" src="{{ url("storage/tags/" . $tag->tag . "/thumb.jpg") }}" alt="">
+        <img class="rounded-lg object-cover h-full w-full" src="https://picsum.photos/100" alt="">
 
     </div><!-- End Video Card -->
 
