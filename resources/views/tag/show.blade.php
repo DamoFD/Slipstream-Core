@@ -121,15 +121,18 @@
 
 <div class="flex justify-center items-center w-full h-full bg-neutral-900">
 
-    <div class="p-8 flex flex-col">
+    <div class="p-8 flex flex-col border-red-900 border-2">
+        <div class="mt-4 flex justify-between">
+            {{-- <p class="text-lg text-white mt-2">{{ $tag->title }} ({{ $tag->tag }})"</p> --}}
+            <p class="text-white text-2xl">A nice random tilte</p>
+            <div class="bg-green-200 flex flex-col">
+                <p>Powered by</p>
+                <img class="w-3/5" src="../img/logo.png" alt="">
+            </div>
 
-        <header class="flex h-20 flex-row justify-between mb-6"><!-- Header -->
-            <div class="self-center"><img src="../img/logo.png" alt=""></div>
-            <nav class="basis-1/6 bg-background-secondary rounded-md self-center text-base text-gray-200 py-2 px-4">
-            </nav>
-        </header>
+        </div>
 
-        <div class="rounded-md overflow-hidden">
+        <div class="rounded-md overflow-hidden self-center">
             <video
             id="media"
             class="video-js vjs-big-play-centered vjs-theme-slipstream"
@@ -144,15 +147,13 @@
             </video>
         </div>
 
-        <div class="mt-4">
-            <sub class="text-white">Title</sub>
-            <p class="text-lg text-white mt-2">{{ $tag->title }} ({{ $tag->tag }})"</p>
-        </div>
+
 
         <div class="mt-6">
             <sub class="text-white">Description</sub>
             <p class="text-lg text-white mt-2">{{ $tag->title }} ({{ $tag->tag }}){{ $tag->title }} ({{ $tag->tag }})"</p>
         </div>
+
 
     </div>
 
