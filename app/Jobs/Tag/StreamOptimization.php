@@ -4,6 +4,7 @@ namespace App\Jobs\Tag;
 
 use App\Models\Tag;
 use App\Models\Video;
+use App\SlipstreamSettings;
 use FFMpeg;
 use FFMpeg\Format\Video\X264;
 use Illuminate\Bus\Queueable;
@@ -40,18 +41,19 @@ class StreamOptimization implements ShouldQueue
      *
      * @return void
      */
-    public function handle()
+    public function handle(SlipstreamSettings $settings)
     {
         $streamhash = Str::random(40);
         // TODO: Qualities
         $qualities = [
-            360 => [640, 360, '1000'],
-            720 => [1280, 720, '1000'],
-            1080 => [1920, 1080, '1000'],
-//            1440 => [2560, 1440, $this->settings['streaming_bitrates'][1440]],
-//            2160 => [3840, 2160, $this->settings['streaming_bitrates'][2160]]
+            360 => [640, 360, $settings->hls_streaming_bitrates[360]],
+            720 => [1280, 720, $settings->hls_streaming_bitrates[720]],
+            1080 => [1920, 1080, $settings->hls_streaming_bitrates[1080]],
+            1440 => [2560, 1440, $settings->hls_streaming_bitrates[1440]],
+            2160 => [3840, 2160, $settings->hls_streaming_bitrates[2160]]
         ];
 
+        // TODO: To helper?
         preg_match('/livewire-tmp(.*)/', $this->path, $regex);
         $ff = FFMpeg::fromDisk('local')
             ->open($regex[0])

@@ -4,6 +4,7 @@ namespace App\Jobs\Tag;
 
 use App\Models\Tag;
 use App\Models\Video;
+use App\SlipstreamSettings;
 use FFMpeg;
 use FFMpeg\Format\Video\X264;
 use Illuminate\Bus\Queueable;
@@ -38,17 +39,12 @@ class x264Optimization implements ShouldQueue
      *
      * @return void
      */
-    public function handle()
+    public function handle(SlipstreamSettings $settings)
     {
         $streamhash = Str::random(40);
 
-        // Bitrates // TODO: Bitrates list
+        // Bitrates // TODO: Original bitrate
         $originalBitrateFormat = (new X264('libmp3lame', 'libx264'))->setKiloBitrate(500); // 360
-
-        $superLowBitrateFormat = (new X264('libmp3lame', 'libx264'))->setKiloBitrate(500); // 360
-        $lowBitrateFormat =(new X264('libmp3lame', 'libx264'))->setKiloBitrate(100720); // 720
-        $midBitrateFormat = (new X264('libmp3lame', 'libx264'))->setKiloBitrate(101080); // 1080
-        $highBitrateFormat = (new X264('libmp3lame', 'libx264'))->setKiloBitrate(101440); // 1440
 
         //TODO: To Helper?
         preg_match('/livewire-tmp(.*)/', $this->path, $regex);
