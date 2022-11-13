@@ -66,7 +66,7 @@
             <div class="tooltip-arrow" data-popper-arrow></div>
         </div>
     @else
-        <livewire:tag.show-progress />
+        <livewire:tag.show-progress :tag='$tag'/>
     @endif
 
 </div>

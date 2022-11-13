@@ -8,11 +8,11 @@ use Livewire\Component;
 class ShowProgress extends Component
 {
 
-    public $job;
+    public $job, $tag;
 
-    public function mount(){
-        $data = Tag::latest()->first();
-        $this->job = $data->job;
+    public function mount($tag){
+        $this->tag = $tag;
+        $this->job = $this->tag->job;
     }
 
     public function getProgressProperty()
@@ -22,7 +22,6 @@ class ShowProgress extends Component
 
     public function render()
     {
-
         if($this->job->status == "finished"){
             $this->emit('refreshTags');
         }
