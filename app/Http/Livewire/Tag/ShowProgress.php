@@ -2,12 +2,30 @@
 
 namespace App\Http\Livewire\Tag;
 
+use App\Models\Tag;
 use Livewire\Component;
 
 class ShowProgress extends Component
 {
+
+    public $job;
+
+    public function mount(){
+        $data = Tag::latest()->first();
+        $this->job = $data->job;
+    }
+
+    public function getProgressProperty()
+    {
+        return $this->job->progress_now;
+    }
+
     public function render()
     {
-        return view('livewire.tag.show-progress');
+
+        if($this->job->status == "finished"){
+            $this->emit('refreshTags');
+        }
+        return view('livewire.tag.show-progress')->with(['progress' => $this->progress]);
     }
 }

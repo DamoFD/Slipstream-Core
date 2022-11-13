@@ -64,10 +64,10 @@ class StoreFile implements ShouldQueue
                 toastr()->addSuccess('Tag ready!');
                 break;
             case VideoType::X264():
-                x264Optimization::dispatch($this->getJobStatusId(), $this->tag, $this->file['path']);
+                x264Optimization::dispatch($this->getJobStatusId(), $this->tag, $this->file['path'])->onConnection('sync');
                 break;
             case VideoType::HLS():
-                StreamOptimization::dispatch($this->getJobStatusId(), $this->tag, $this->file['path']);
+                StreamOptimization::dispatch($this->getJobStatusId(), $this->tag, $this->file['path'])->onConnection('sync');
                 break;
             default:
                 throw new Exception('Wrong type');
