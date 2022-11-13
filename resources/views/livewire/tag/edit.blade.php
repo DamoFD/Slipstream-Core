@@ -2,11 +2,11 @@
     <div class="p-8">
         <div class="p-4"> <!-- Header -->
             <h1 class="text-4xl leading-6 font-light text-[#00A3FE]">
-               Settings
+                Settings
             </h1>
         </div>
 
-            <!-- Main content -->
+        <!-- Main content -->
         <div class="px-4 flex justify-between gap-12">
             <div class="flex flex-col basis-3/5"><!-- coll 1 -->
 

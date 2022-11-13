@@ -18513,6 +18513,28 @@
      
 }
 
+    namespace App\Http\Requests\Auth { 
+            /**
+     * 
+     *
+     */ 
+        class LoginRequest {
+         
+    }
+     
+}
+
+    namespace Illuminate\Foundation\Http { 
+            /**
+     * 
+     *
+     */ 
+        class FormRequest {
+         
+    }
+     
+}
+
     namespace Illuminate\View { 
             /**
      * 

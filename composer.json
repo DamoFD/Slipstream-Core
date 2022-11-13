@@ -17,6 +17,7 @@
         "pbmedia/laravel-ffmpeg": "^8.1",
         "php-flasher/flasher-laravel": "^1.7",
         "php-flasher/flasher-toastr-laravel": "^1.7",
+        "spatie/laravel-settings": "^2.5",
         "wire-elements/modal": "^1.0"
     },
     "require-dev": {
