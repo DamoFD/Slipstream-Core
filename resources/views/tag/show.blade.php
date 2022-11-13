@@ -1,5 +1,7 @@
 <head>
     <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
 </head>
 <style>
     .vjs-theme-slipstream{
@@ -115,18 +117,45 @@
         border-right:0 solid transparent;
         border-top:0 solid transparent
     }
-
 </style>
-<video
-    id="media"
-    class="video-js vjs-big-play-centered vjs-theme-slipstream"
-    controls
-    preload="auto"
-    width="1280"
-    height="528"
-    {{--        poster="MY_VIDEO_POSTER.jpg"--}}
-    data-setup="{}"
->
-    <source src="{{url('storage/tags/'.$tag->tag.'/'.$tag->taggable->file)}}" type="video/mp4">
-</video>
+
+<div class="flex justify-center items-center w-full h-full bg-neutral-900">
+
+    <div class="p-8 flex flex-col border-red-900 border-2">
+        <div class="mt-4 flex justify-between">
+            {{-- <p class="text-lg text-white mt-2">{{ $tag->title }} ({{ $tag->tag }})"</p> --}}
+            <p class="text-white text-2xl">A nice random tilte</p>
+            <div class="bg-green-200 flex flex-col">
+                <p>Powered by</p>
+                <img class="w-3/5" src="../img/logo.png" alt="">
+            </div>
+
+        </div>
+
+        <div class="rounded-md overflow-hidden self-center">
+            <video
+            id="media"
+            class="video-js vjs-big-play-centered vjs-theme-slipstream"
+            controls
+            preload="auto"
+            width="auto"
+            height="528"
+            {{--        poster="MY_VIDEO_POSTER.jpg"--}}
+            data-setup="{}"
+            >
+                <source src="{{url('storage/tags/'.$tag->tag.'/'.$tag->taggable->file)}}" type="video/mp4">
+            </video>
+        </div>
+
+
+
+        <div class="mt-6">
+            <sub class="text-white">Description</sub>
+            <p class="text-lg text-white mt-2">{{ $tag->title }} ({{ $tag->tag }}){{ $tag->title }} ({{ $tag->tag }})"</p>
+        </div>
+
+
+    </div>
+
+</div>
 <script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
