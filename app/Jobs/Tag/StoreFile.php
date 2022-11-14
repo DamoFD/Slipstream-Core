@@ -18,6 +18,7 @@ class StoreFile implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels, Trackable;
 
+    public $timeout = 0;
     protected $file, $tag, $type;
 
     /**

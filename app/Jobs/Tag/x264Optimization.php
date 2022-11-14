@@ -19,6 +19,7 @@ class x264Optimization implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels, Trackable;
 
+    public $timeout = 0;
     protected Tag $tag;
     protected $path;
     /**
