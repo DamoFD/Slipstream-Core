@@ -22,6 +22,10 @@ class Create extends ModalComponent
         return view('livewire.tag.create');
     }
 
+    public function mount(){
+        $this->type = "1";
+    }
+
     public function updatedFile()
     {
         //TODO: If video -> Create thumb for preview
