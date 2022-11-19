@@ -49,7 +49,7 @@
                         <div class="grid grid-cols-2 gap-8">
                             <div class="">
                                 <p class="mb-2"><label for="title" >Title</label></p>
-                                <p class="mb-4"><input type="text" x-bind:placeholder="file" wire:model="title" id="title" class="default-input w-full hidden"></p>
+                                <p class="mb-4"><input type="text" x-bind:placeholder="file" wire:model="title" id="title" class="default-input w-full"></p>
                                 <p class="mb-2"><label for="description">Description</label></p>
                                 <p><textarea placeholder="Description..." rows="1" wire:model="description" class="default-input w-full"></textarea></p>
                                 <p class="mb-2"><label for="type">Type</label>
