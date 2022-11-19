@@ -19,12 +19,16 @@ class ShowProgress extends Component
     {
         return $this->job->progress_now;
     }
+    public function getStatusProperty()
+    {
+        return $this->job->status;
+    }
 
     public function render()
     {
         if($this->job->status == "finished"){
             $this->emit('refreshTags');
         }
-        return view('livewire.tag.show-progress')->with(['progress' => $this->progress]);
+        return view('livewire.tag.show-progress')->with(['progress' => $this->progress, 'status' => $this->status]);
     }
 }
