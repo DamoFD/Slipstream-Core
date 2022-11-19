@@ -9,7 +9,7 @@
         <div class="w-full h-full absolute backdrop-blur bg-black/90">
             <div class="w-full h-full flex justify-center items-center flex-col" >
 
-                <span class="text-white font-bold text-lg">Processing {{ $progress }}</span>
+                <span class="text-white font-bold text-lg">Processing - {{ $status }}</span>
 
                 <div class="w-3/4" x-data="{ width: 20 }" x-init="$watch('width', value => { if (value > 100) { width = 100 } if (value == 0) { width = 10 } })">
                     <div class="bg-neutral-800 rounded h-6 mt-5 w-full drop-shadow-lg" role="progressbar">

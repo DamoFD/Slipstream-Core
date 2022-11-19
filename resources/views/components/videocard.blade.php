@@ -17,7 +17,7 @@
                         </p>
                         <!-- Description -->
                         <p class="text-sm text-de">
-                            {{ $tag->description }}<span x-text="status"></span>
+                            {{ $tag->description }}
                         </p>
                     </div>
                     <div class="flex self-center h-5/6">
@@ -66,7 +66,7 @@
             <div class="tooltip-arrow" data-popper-arrow></div>
         </div>
     @else
-        <livewire:tag.show-progress :tag='$tag'/>
+        <livewire:tag.show-progress :tag='$tag' :wire:key="$tag->id"/>
     @endif
 
 </div>
