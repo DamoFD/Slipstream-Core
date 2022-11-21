@@ -43,14 +43,24 @@
                 <div class="flex order-first h-full p-4 justify-between">
                     <!-- Type -->
                     <div class="p-2 h-fit bg-black opacity-80 rounded-lg text-white text-opacity-100">
-                        <span class="align-middle"><i class='bx bx-world'></i></span>
-                        {{--                    <span class="text-sm font-bold">{{ $tag->taggable->codec }}</span>--}}
+                                            <span class="text-sm font-bold">
+                                                @switch($tag->taggable->type)
+                                                    @case(1)
+                                                        <box-icon color="white" name='file'></box-icon>
+                                                        @break
+                                                    @case(2)
+                                                        <box-icon color="white" name='movie-play' ></box-icon>
+                                                        @break
+                                                    @case(3)
+                                                        <box-icon color="white" name='cast' ></box-icon>
+                                                        @break
+                                                @endswitch
+                                            </span>
                     </div>
 
                     <!-- Quality -->
                     <div class="p-2 h-fit bg-black opacity-80 rounded-lg text-white text-opacity-100">
-                        <span class="align-middle"><i class='bx bx-film'></i></span>
-                        {{--                    <span class="text-sm font-bold">{{ $tag->taggable->quality }}p</span>--}}
+                        <span class="text-sm font-bold">{{ $tag->taggable->info->height }}p</span>
                     </div>
 
                 </div>

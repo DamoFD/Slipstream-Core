@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('file'); // original video hash filename
             $table->json('info')->nullable();
+            $table->integer('type')->default(\App\Enums\VideoType::Original);
             $table->timestamps();
         });
     }

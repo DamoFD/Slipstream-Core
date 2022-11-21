@@ -47,18 +47,7 @@ class StoreFile implements ShouldQueue
             case VideoType::Original():
                 $ffmpeg = FFMpeg::openUrl($this->file['path']); // TODO: Check
                 $media = Video::create([
-                    'file' => $this->file['name'],
-                    'info'      => [
-//                'size'              => round($this->file->getSize()/1000000), // to MB
-//                'extension'         => $this->file->extension(),
-                        'codec_name'        => $ffmpeg->getVideoStream()->get('codec_name'),
-                        'codec_long_name'   => $ffmpeg->getVideoStream()->get('codec_long_name'),
-                        'bit_rate'          => $ffmpeg->getVideoStream()->get('bit_rate'),
-                        'width'             => $ffmpeg->getVideoStream()->get('width'),
-                        'height'            => $ffmpeg->getVideoStream()->get('height'),
-                        'r_frame_rate'      => $ffmpeg->getVideoStream()->get('r_frame_rate'),
-                        'avg_frame_rate'    => $ffmpeg->getVideoStream()->get('avg_frame_rate'),
-                        'tags'              => $ffmpeg->getVideoStream()->get('tags'),]
+                    'file' => $this->file['name']
                 ]);
                 $media->tag()->save($this->tag);
                 \Storage::disk('tags')->put($this->tag->tag.'/'.$this->file['name'], file_get_contents($this->file['path']), 'public');
@@ -73,6 +62,8 @@ class StoreFile implements ShouldQueue
             default:
                 throw new Exception('Wrong type');
         }
+
+        GetVideoInfo::dispatch($this->tag, $this->type)->onConnection('sync');
 
 
     }
