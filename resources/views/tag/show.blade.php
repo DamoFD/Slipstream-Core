@@ -43,7 +43,9 @@
 <div class="container">
     <div class="ambient-player">
         <canvas id="decoyVideo" class="decoy"></canvas>
-        <video id="mainVideo" controls crossorigin playsinline poster="https://bitdash-a.akamaihd.net/content/sintel/poster.png"></video>
+        <video id="mainVideo" controls crossorigin playsinline poster="{{ url("storage/tags/" . $tag->tag . "/thumb.jpg") }}" src="">
+
+        </video>
     </div>
 </div>
 <!-- Plyr resources and browser polyfills are specified in the pen settings -->
@@ -54,55 +56,24 @@
 <script src='https://cdn.polyfill.io/v2/polyfill.min.js?features=es6,Array.prototype.includes,CustomEvent,Object.entries,Object.values,URL'></script>
 <script src='https://unpkg.com/plyr@3'></script>
 
+
     <script>
-        let canvas = document.getElementById("decoyVideo"),
-            ctx = canvas.getContext("2d"),
-            video = document.getElementById("mainVideo");
-
-        setCanvasDimension();
-        paintStaticVideo();
-
-        video.addEventListener("play", function () {
-            let video = this; //cache
-            (function loop() {
-                if (!video.paused && !video.ended) {
-                    ctx.drawImage(video, 0, 0, video.offsetWidth, video.offsetHeight);
-                    setTimeout(loop, 1000 / 30); // drawing at 30fps
-                }
-            })();
-        });
-
-        video.addEventListener("seeked", () => {
-            paintStaticVideo();
-        });
-
-        window.addEventListener("resize", () => {
-            setCanvasDimension();
-            if (video.paused) {
-                paintStaticVideo();
-            }
-        });
-
-        function setCanvasDimension() {
-            canvas.height = video.offsetHeight;
-            canvas.width = video.offsetWidth;
-        }
-
-        function paintStaticVideo() {
-            ctx.drawImage(video, 0, 0, video.offsetWidth, video.offsetHeight);
-        }
-
         document.addEventListener('DOMContentLoaded', () => {
             const source = '{{url('storage/tags/'.$tag->tag.'/'.$tag->taggable->file)}}';
             const video = document.querySelector('video');
-
             const defaultOptions = {};
 
-            if (!Hls.isSupported()) {
+            console.log("Source: %s",source)
+            console.log( "Type: %d", {{ $tag->taggable->type }} );
+
+            if (!Hls.isSupported() || {{ $tag->taggable->type }} != 3) {
+                console.log("HLS is not supported")
                 video.src = source;
                 var player = new Plyr(video, defaultOptions);
             } else {
+                console.log("HLS is supported! :)")
                 // For more Hls.js options, see https://github.com/dailymotion/hls.js
+                console.log("Setting up HLS and load source")
                 const hls = new Hls();
                 hls.loadSource(source);
 
@@ -159,6 +130,50 @@
                 }
             }
         });
+    </script>
+
+
+
+    <script>
+        /*
+        Ambilight
+         */
+        let canvas = document.getElementById("decoyVideo"),
+            ctx = canvas.getContext("2d"),
+            video = document.getElementById("mainVideo");
+
+        setCanvasDimension();
+        paintStaticVideo();
+
+        video.addEventListener("play", function () {
+            let video = this; //cache
+            (function loop() {
+                if (!video.paused && !video.ended) {
+                    ctx.drawImage(video, 0, 0, video.offsetWidth, video.offsetHeight);
+                    setTimeout(loop, 1000 / 30); // drawing at 30fps
+                }
+            })();
+        });
+
+        video.addEventListener("seeked", () => {
+            paintStaticVideo();
+        });
+
+        window.addEventListener("resize", () => {
+            setCanvasDimension();
+            if (video.paused) {
+                paintStaticVideo();
+            }
+        });
+
+        function setCanvasDimension() {
+            canvas.height = video.offsetHeight;
+            canvas.width = video.offsetWidth;
+        }
+
+        function paintStaticVideo() {
+            ctx.drawImage(video, 0, 0, video.offsetWidth, video.offsetHeight);
+        }
     </script>
 
 </body>
