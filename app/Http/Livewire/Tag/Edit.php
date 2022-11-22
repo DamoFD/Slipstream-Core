@@ -9,6 +9,13 @@ class Edit extends ModalComponent
 {
 
     public Tag $tag;
+    public $title;
+
+    protected $rules = [
+
+        'tag.title' => 'required|string',
+        'tag.description' => ''
+    ];
 
     public function mount(Tag $tag)
     {
@@ -19,6 +26,17 @@ class Edit extends ModalComponent
     {
         return view('livewire.tag.edit')->with(['tag'=>$this->tag]);
     }
+
+    public function update()
+    {
+        $this->validate();
+        $this->tag->save();
+        $this->emit('refreshTags');
+        toastr()->addSuccess('Tag updated!');
+        $this->closeModal();
+    }
+
+
 
     public static function modalMaxWidth(): string
     {

@@ -10,5 +10,6 @@ class TagService{
     public function delete(Tag $tag)
     {
         $tag->deleteorFail();
+        \Storage::disk('tags')->deleteDirectory($tag->tag);
     }
 }

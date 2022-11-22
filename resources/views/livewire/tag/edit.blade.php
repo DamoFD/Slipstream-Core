@@ -16,16 +16,19 @@
 
                 <div class="mb-8">
                     <p class="font-light pb-2"><label for="mediaTitle">Media Title</label></p>
-                    <p><input class="input-text default-input w-full" type="text" placeholder="{{ $tag->title }} ({{ $tag->tag }})" name="mediaTitle" wire:model=""></p>
+                    <p><input class="input-text default-input w-full" type="text" placeholder="{{ $tag->title }} ({{ $tag->tag }})" name="mediaTitle" wire:model="tag.title"></p>
                     <sub class="text-neutral-400">The title of your media</sub>
+                    @error('tag.title') <sub class="text-red-400">{{ $message }}</sub> @enderror
                 </div>
 
                 <div class="mb-6">
-                    <p class="font-light pb-2"><label for="mediaDiscription">Discription</label></p>
+                    <p class="font-light pb-2"><label for="mediaDescription">Description</label></p>
                     <p>
-                        <textarea class="input-text default-input w-full" name="mediaDiscription" id="mediaDiscription" cols="10" rows="3" wire:model=""></textarea>
+                        <textarea class="input-text default-input w-full" name="mediaDescription" id="mediaDescription" cols="10" rows="3" wire:model="tag.description"></textarea>
                     </p>
-                    <sub class="text-neutral-400">Discribe your media</sub>
+                    <sub class="text-neutral-400">Describe your media</sub>
+
+                    @error('tag.description') <sub class="text-red-400">{{ $message }}</sub> @enderror
                 </div>
 
             </div>
