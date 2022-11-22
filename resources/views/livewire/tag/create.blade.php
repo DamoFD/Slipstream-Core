@@ -26,12 +26,12 @@
                         <p class="text-center align-middle pt-4 font-bold">Uploading</p>
                         {{-- <progress max="100" x-bind:value="progress"></progress> --}}
                         {{-- Progress Bar --}}
-                        <div class="w-full" x-data="{ width: '50' }" x-init="$watch('width', value => { if (value > 100) { width = 100 } if (value == 0) { width = 10 } })">
+                        <div class="w-full" x-init="$watch('progress', value => { if (value > 100) { width = 100 } if (value == 0) { width = 10 } })">
                             <div class="bg-neutral-800 rounded h-6 mt-2 w-full drop-shadow-lg" role="progressbar">
                                 <div
                                     class="bg-[#00A3FE] rounded h-6 text-center text-white text-sm transition"
-                                    :style="`width: ${width}%; transition: width 2s;`"
-                                    x-text="`${width}%`"
+                                    x-bind:style="`width: ${progress}%; transition: width 2s;`"
+                                    x-text="`${progress}%`"
                                     >
                                 </div>
                             </div>
