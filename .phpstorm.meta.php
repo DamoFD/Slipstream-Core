@@ -11,6 +11,7 @@ namespace PHPSTORM_META {
     */
     override(new \Illuminate\Contracts\Container\Container, map([
         '' => '@',
+            'App\SlipstreamSettings' => \App\SlipstreamSettings::class,
             'Flasher\Laravel\Middleware\FlasherMiddleware' => \Flasher\Laravel\Middleware\FlasherMiddleware::class,
             'Flasher\Laravel\Middleware\SessionMiddleware' => \Flasher\Laravel\Middleware\SessionMiddleware::class,
             'Flasher\Prime\FlasherInterface' => \Flasher\Prime\Flasher::class,
@@ -201,7 +202,7 @@ namespace PHPSTORM_META {
             'migration.repository' => \Illuminate\Database\Migrations\DatabaseMigrationRepository::class,
             'migrator' => \Illuminate\Database\Migrations\Migrator::class,
             'queue' => \Illuminate\Queue\QueueManager::class,
-            'queue.connection' => \Illuminate\Queue\DatabaseQueue::class,
+            'queue.connection' => \Illuminate\Queue\SyncQueue::class,
             'queue.failer' => \Illuminate\Queue\Failed\DatabaseUuidFailedJobProvider::class,
             'queue.listener' => \Illuminate\Queue\Listener::class,
             'queue.worker' => \Illuminate\Queue\Worker::class,
@@ -220,6 +221,7 @@ namespace PHPSTORM_META {
         ]));
     override(\Illuminate\Container\Container::makeWith(0), map([
         '' => '@',
+            'App\SlipstreamSettings' => \App\SlipstreamSettings::class,
             'Flasher\Laravel\Middleware\FlasherMiddleware' => \Flasher\Laravel\Middleware\FlasherMiddleware::class,
             'Flasher\Laravel\Middleware\SessionMiddleware' => \Flasher\Laravel\Middleware\SessionMiddleware::class,
             'Flasher\Prime\FlasherInterface' => \Flasher\Prime\Flasher::class,
@@ -410,7 +412,7 @@ namespace PHPSTORM_META {
             'migration.repository' => \Illuminate\Database\Migrations\DatabaseMigrationRepository::class,
             'migrator' => \Illuminate\Database\Migrations\Migrator::class,
             'queue' => \Illuminate\Queue\QueueManager::class,
-            'queue.connection' => \Illuminate\Queue\DatabaseQueue::class,
+            'queue.connection' => \Illuminate\Queue\SyncQueue::class,
             'queue.failer' => \Illuminate\Queue\Failed\DatabaseUuidFailedJobProvider::class,
             'queue.listener' => \Illuminate\Queue\Listener::class,
             'queue.worker' => \Illuminate\Queue\Worker::class,
@@ -429,6 +431,7 @@ namespace PHPSTORM_META {
         ]));
     override(\Illuminate\Contracts\Container\Container::get(0), map([
         '' => '@',
+            'App\SlipstreamSettings' => \App\SlipstreamSettings::class,
             'Flasher\Laravel\Middleware\FlasherMiddleware' => \Flasher\Laravel\Middleware\FlasherMiddleware::class,
             'Flasher\Laravel\Middleware\SessionMiddleware' => \Flasher\Laravel\Middleware\SessionMiddleware::class,
             'Flasher\Prime\FlasherInterface' => \Flasher\Prime\Flasher::class,
@@ -619,7 +622,7 @@ namespace PHPSTORM_META {
             'migration.repository' => \Illuminate\Database\Migrations\DatabaseMigrationRepository::class,
             'migrator' => \Illuminate\Database\Migrations\Migrator::class,
             'queue' => \Illuminate\Queue\QueueManager::class,
-            'queue.connection' => \Illuminate\Queue\DatabaseQueue::class,
+            'queue.connection' => \Illuminate\Queue\SyncQueue::class,
             'queue.failer' => \Illuminate\Queue\Failed\DatabaseUuidFailedJobProvider::class,
             'queue.listener' => \Illuminate\Queue\Listener::class,
             'queue.worker' => \Illuminate\Queue\Worker::class,
@@ -638,6 +641,7 @@ namespace PHPSTORM_META {
         ]));
     override(\Illuminate\Contracts\Container\Container::make(0), map([
         '' => '@',
+            'App\SlipstreamSettings' => \App\SlipstreamSettings::class,
             'Flasher\Laravel\Middleware\FlasherMiddleware' => \Flasher\Laravel\Middleware\FlasherMiddleware::class,
             'Flasher\Laravel\Middleware\SessionMiddleware' => \Flasher\Laravel\Middleware\SessionMiddleware::class,
             'Flasher\Prime\FlasherInterface' => \Flasher\Prime\Flasher::class,
@@ -828,7 +832,7 @@ namespace PHPSTORM_META {
             'migration.repository' => \Illuminate\Database\Migrations\DatabaseMigrationRepository::class,
             'migrator' => \Illuminate\Database\Migrations\Migrator::class,
             'queue' => \Illuminate\Queue\QueueManager::class,
-            'queue.connection' => \Illuminate\Queue\DatabaseQueue::class,
+            'queue.connection' => \Illuminate\Queue\SyncQueue::class,
             'queue.failer' => \Illuminate\Queue\Failed\DatabaseUuidFailedJobProvider::class,
             'queue.listener' => \Illuminate\Queue\Listener::class,
             'queue.worker' => \Illuminate\Queue\Worker::class,
@@ -847,6 +851,7 @@ namespace PHPSTORM_META {
         ]));
     override(\Illuminate\Contracts\Container\Container::makeWith(0), map([
         '' => '@',
+            'App\SlipstreamSettings' => \App\SlipstreamSettings::class,
             'Flasher\Laravel\Middleware\FlasherMiddleware' => \Flasher\Laravel\Middleware\FlasherMiddleware::class,
             'Flasher\Laravel\Middleware\SessionMiddleware' => \Flasher\Laravel\Middleware\SessionMiddleware::class,
             'Flasher\Prime\FlasherInterface' => \Flasher\Prime\Flasher::class,
@@ -1037,7 +1042,7 @@ namespace PHPSTORM_META {
             'migration.repository' => \Illuminate\Database\Migrations\DatabaseMigrationRepository::class,
             'migrator' => \Illuminate\Database\Migrations\Migrator::class,
             'queue' => \Illuminate\Queue\QueueManager::class,
-            'queue.connection' => \Illuminate\Queue\DatabaseQueue::class,
+            'queue.connection' => \Illuminate\Queue\SyncQueue::class,
             'queue.failer' => \Illuminate\Queue\Failed\DatabaseUuidFailedJobProvider::class,
             'queue.listener' => \Illuminate\Queue\Listener::class,
             'queue.worker' => \Illuminate\Queue\Worker::class,
@@ -1056,6 +1061,7 @@ namespace PHPSTORM_META {
         ]));
     override(\App::get(0), map([
         '' => '@',
+            'App\SlipstreamSettings' => \App\SlipstreamSettings::class,
             'Flasher\Laravel\Middleware\FlasherMiddleware' => \Flasher\Laravel\Middleware\FlasherMiddleware::class,
             'Flasher\Laravel\Middleware\SessionMiddleware' => \Flasher\Laravel\Middleware\SessionMiddleware::class,
             'Flasher\Prime\FlasherInterface' => \Flasher\Prime\Flasher::class,
@@ -1246,7 +1252,7 @@ namespace PHPSTORM_META {
             'migration.repository' => \Illuminate\Database\Migrations\DatabaseMigrationRepository::class,
             'migrator' => \Illuminate\Database\Migrations\Migrator::class,
             'queue' => \Illuminate\Queue\QueueManager::class,
-            'queue.connection' => \Illuminate\Queue\DatabaseQueue::class,
+            'queue.connection' => \Illuminate\Queue\SyncQueue::class,
             'queue.failer' => \Illuminate\Queue\Failed\DatabaseUuidFailedJobProvider::class,
             'queue.listener' => \Illuminate\Queue\Listener::class,
             'queue.worker' => \Illuminate\Queue\Worker::class,
@@ -1265,6 +1271,7 @@ namespace PHPSTORM_META {
         ]));
     override(\App::make(0), map([
         '' => '@',
+            'App\SlipstreamSettings' => \App\SlipstreamSettings::class,
             'Flasher\Laravel\Middleware\FlasherMiddleware' => \Flasher\Laravel\Middleware\FlasherMiddleware::class,
             'Flasher\Laravel\Middleware\SessionMiddleware' => \Flasher\Laravel\Middleware\SessionMiddleware::class,
             'Flasher\Prime\FlasherInterface' => \Flasher\Prime\Flasher::class,
@@ -1455,7 +1462,7 @@ namespace PHPSTORM_META {
             'migration.repository' => \Illuminate\Database\Migrations\DatabaseMigrationRepository::class,
             'migrator' => \Illuminate\Database\Migrations\Migrator::class,
             'queue' => \Illuminate\Queue\QueueManager::class,
-            'queue.connection' => \Illuminate\Queue\DatabaseQueue::class,
+            'queue.connection' => \Illuminate\Queue\SyncQueue::class,
             'queue.failer' => \Illuminate\Queue\Failed\DatabaseUuidFailedJobProvider::class,
             'queue.listener' => \Illuminate\Queue\Listener::class,
             'queue.worker' => \Illuminate\Queue\Worker::class,
@@ -1474,6 +1481,7 @@ namespace PHPSTORM_META {
         ]));
     override(\App::makeWith(0), map([
         '' => '@',
+            'App\SlipstreamSettings' => \App\SlipstreamSettings::class,
             'Flasher\Laravel\Middleware\FlasherMiddleware' => \Flasher\Laravel\Middleware\FlasherMiddleware::class,
             'Flasher\Laravel\Middleware\SessionMiddleware' => \Flasher\Laravel\Middleware\SessionMiddleware::class,
             'Flasher\Prime\FlasherInterface' => \Flasher\Prime\Flasher::class,
@@ -1664,7 +1672,7 @@ namespace PHPSTORM_META {
             'migration.repository' => \Illuminate\Database\Migrations\DatabaseMigrationRepository::class,
             'migrator' => \Illuminate\Database\Migrations\Migrator::class,
             'queue' => \Illuminate\Queue\QueueManager::class,
-            'queue.connection' => \Illuminate\Queue\DatabaseQueue::class,
+            'queue.connection' => \Illuminate\Queue\SyncQueue::class,
             'queue.failer' => \Illuminate\Queue\Failed\DatabaseUuidFailedJobProvider::class,
             'queue.listener' => \Illuminate\Queue\Listener::class,
             'queue.worker' => \Illuminate\Queue\Worker::class,
@@ -1683,6 +1691,7 @@ namespace PHPSTORM_META {
         ]));
     override(\app(0), map([
         '' => '@',
+            'App\SlipstreamSettings' => \App\SlipstreamSettings::class,
             'Flasher\Laravel\Middleware\FlasherMiddleware' => \Flasher\Laravel\Middleware\FlasherMiddleware::class,
             'Flasher\Laravel\Middleware\SessionMiddleware' => \Flasher\Laravel\Middleware\SessionMiddleware::class,
             'Flasher\Prime\FlasherInterface' => \Flasher\Prime\Flasher::class,
@@ -1873,7 +1882,7 @@ namespace PHPSTORM_META {
             'migration.repository' => \Illuminate\Database\Migrations\DatabaseMigrationRepository::class,
             'migrator' => \Illuminate\Database\Migrations\Migrator::class,
             'queue' => \Illuminate\Queue\QueueManager::class,
-            'queue.connection' => \Illuminate\Queue\DatabaseQueue::class,
+            'queue.connection' => \Illuminate\Queue\SyncQueue::class,
             'queue.failer' => \Illuminate\Queue\Failed\DatabaseUuidFailedJobProvider::class,
             'queue.listener' => \Illuminate\Queue\Listener::class,
             'queue.worker' => \Illuminate\Queue\Worker::class,
@@ -1892,6 +1901,7 @@ namespace PHPSTORM_META {
         ]));
     override(\resolve(0), map([
         '' => '@',
+            'App\SlipstreamSettings' => \App\SlipstreamSettings::class,
             'Flasher\Laravel\Middleware\FlasherMiddleware' => \Flasher\Laravel\Middleware\FlasherMiddleware::class,
             'Flasher\Laravel\Middleware\SessionMiddleware' => \Flasher\Laravel\Middleware\SessionMiddleware::class,
             'Flasher\Prime\FlasherInterface' => \Flasher\Prime\Flasher::class,
@@ -2082,7 +2092,7 @@ namespace PHPSTORM_META {
             'migration.repository' => \Illuminate\Database\Migrations\DatabaseMigrationRepository::class,
             'migrator' => \Illuminate\Database\Migrations\Migrator::class,
             'queue' => \Illuminate\Queue\QueueManager::class,
-            'queue.connection' => \Illuminate\Queue\DatabaseQueue::class,
+            'queue.connection' => \Illuminate\Queue\SyncQueue::class,
             'queue.failer' => \Illuminate\Queue\Failed\DatabaseUuidFailedJobProvider::class,
             'queue.listener' => \Illuminate\Queue\Listener::class,
             'queue.worker' => \Illuminate\Queue\Worker::class,
@@ -2101,6 +2111,7 @@ namespace PHPSTORM_META {
         ]));
     override(\Psr\Container\ContainerInterface::get(0), map([
         '' => '@',
+            'App\SlipstreamSettings' => \App\SlipstreamSettings::class,
             'Flasher\Laravel\Middleware\FlasherMiddleware' => \Flasher\Laravel\Middleware\FlasherMiddleware::class,
             'Flasher\Laravel\Middleware\SessionMiddleware' => \Flasher\Laravel\Middleware\SessionMiddleware::class,
             'Flasher\Prime\FlasherInterface' => \Flasher\Prime\Flasher::class,
@@ -2291,7 +2302,7 @@ namespace PHPSTORM_META {
             'migration.repository' => \Illuminate\Database\Migrations\DatabaseMigrationRepository::class,
             'migrator' => \Illuminate\Database\Migrations\Migrator::class,
             'queue' => \Illuminate\Queue\QueueManager::class,
-            'queue.connection' => \Illuminate\Queue\DatabaseQueue::class,
+            'queue.connection' => \Illuminate\Queue\SyncQueue::class,
             'queue.failer' => \Illuminate\Queue\Failed\DatabaseUuidFailedJobProvider::class,
             'queue.listener' => \Illuminate\Queue\Listener::class,
             'queue.worker' => \Illuminate\Queue\Worker::class,
