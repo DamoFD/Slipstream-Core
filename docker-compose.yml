@@ -1,0 +1,40 @@
+version: '3.8'
+name: slipstream-stack
+services:
+    core:
+        container_name: Slipstream_core
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - 80:80
+        environment:
+            SSL_MODE: "off"
+            FFMPEG_BINARIES: "/usr/bin/ffmpeg"
+            FFPROBE_BINARIES: "/usr/bin/ffprobe"
+            PHP_OPEN_BASEDIR: "/var/www/html:/dev/stdout:/tmp:/usr/bin"
+        volumes:
+            - ./.env:/var/www/html/.env # .env File
+            - ./teststorage/app:/var/www/html/storage/app # App folder
+            - ./teststorage/logs:/var/www/html/storage/logs # Logs
+
+    queue:
+        image: slipstream-stack-core
+        container_name: Slipstream_queue
+        # Switch to "webuser" before running `php artisan`
+        # Declare command in list manner for environment variable expansion
+        command: [ "su", "webuser", "-c", "php artisan queue:work --tries=3" ]
+        environment:
+            PHP_POOL_NAME: "slipstream_queue"
+        volumes:
+            - ./.env:/var/www/html/.env # .env File
+            - ./teststorage/app:/var/www/html/storage/app # App folder
+            - ./teststorage/logs:/var/www/html/storage/logs # Logs
+
+
+volumes:
+    shared-tmp:
+
+networks:
+    default:
+        name: slipstream_network
