@@ -2,7 +2,7 @@ FROM serversideup/php:8.0-fpm-nginx
 
 # Set environment variables
 ENV SSL_MODE="off"
-ENV PHP_OPEN_BASEDIR="/var/www/html:/dev/stdout:/tmp:/usr/bin"
+ENV PHP_OPEN_BASEDIR="$WEBUSER_HOME:/dev/stdout:/tmp:/usr/bin"
 
 ENV FFMPEG_BINARIES="/usr/bin/ffmpeg"
 ENV FFPROBE_BINARIES="/usr/bin/ffprobe"

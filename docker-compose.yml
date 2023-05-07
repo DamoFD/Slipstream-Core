@@ -30,11 +30,8 @@ services:
         environment:
             MYSQL_DATABASE: slipstream
             MYSQL_ROOT_PASSWORD: yoursecretdbpass
-            SERVICE_TAGS: dev
-            SERVICE_NAME: mysql
         volumes:
             - dbdata:/var/lib/mysql/
-            - ./mysql/my.cnf:/etc/mysql/my.cnf
         networks:
             - slipstream_network
 
