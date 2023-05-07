@@ -1,12 +1,8 @@
 version: '3.8'
 name: slipstream-stack
 
-x-environment: &environment
-    DB_HOST: slipstream-db
-    DB_PASSWORD: yoursecretdbpass
-
 services:
-    core:
+    app:
         container_name: Slipstream_core
         build:
             context: .
@@ -16,7 +12,8 @@ services:
         depends_on:
             - db
         environment:
-            <<: *environment
+            DB_HOST: slipstream-db
+            DB_PASSWORD: yoursecretdbpass
         volumes:
             - ./.env:/var/www/html/.env # .env File
             - ./teststorage/app:/var/www/html/storage/app # App folder
@@ -31,7 +28,6 @@ services:
         ports:
             - "3306:3306"
         environment:
-            <<: *environment
             MYSQL_DATABASE: slipstream
             MYSQL_ROOT_PASSWORD: yoursecretdbpass
             SERVICE_TAGS: dev
@@ -43,7 +39,6 @@ services:
             - slipstream_network
 
 volumes:
-    shared-tmp:
     dbdata:
 
 networks:
