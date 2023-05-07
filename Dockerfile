@@ -16,9 +16,14 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
 
+# Copy S6 configs
+COPY --chmod=755 deploy/s6-overlay/ /etc/s6-overlay/
+
 COPY  --chown=9999:9999 ./../ /var/www/html
 
 #RUN composer install --no-interaction --optimize-autoloader --no-dev
 RUN composer install --no-interaction --optimize-autoloader
 
 EXPOSE 80
+
+#CMD ["su", "webuser", "-c", "php artisan queue:work --tries=3"]
