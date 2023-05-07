@@ -1,9 +1,9 @@
 version: '3.8'
-name: slipstream-stack
+name: slipstream
 
 services:
     app:
-        container_name: Slipstream_core
+        container_name: Slipstream
         build:
             context: .
             dockerfile: Dockerfile
