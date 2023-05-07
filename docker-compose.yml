@@ -2,11 +2,8 @@ version: '3.8'
 name: slipstream-stack
 
 x-environment: &environment
-    FFMPEG_BINARIES: "/usr/bin/ffmpeg"
-    FFPROBE_BINARIES: "/usr/bin/ffprobe"
     DB_HOST: slipstream-db
     DB_PASSWORD: yoursecretdbpass
-
 
 services:
     core:
@@ -20,8 +17,6 @@ services:
             - db
         environment:
             <<: *environment
-            SSL_MODE: "off"
-            PHP_OPEN_BASEDIR: "/var/www/html:/dev/stdout:/tmp:/usr/bin"
         volumes:
             - ./.env:/var/www/html/.env # .env File
             - ./teststorage/app:/var/www/html/storage/app # App folder
@@ -32,9 +27,10 @@ services:
     queue:
         image: slipstream-stack-core
         container_name: Slipstream_queue
-        # Switch to "webuser" before running `php artisan`
-        # Declare command in list manner for environment variable expansion
         command: [ "su", "webuser", "-c", "php artisan queue:work --tries=3" ]
+        depends_on:
+            - core
+            - db
         environment:
             <<: *environment
             PHP_POOL_NAME: "slipstream_queue"
