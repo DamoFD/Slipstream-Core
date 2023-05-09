@@ -26,4 +26,4 @@ RUN composer install --no-interaction --optimize-autoloader
 
 EXPOSE 80
 
-#CMD ["su", "webuser", "-c", "php artisan queue:work --tries=3"]
+CMD ["su", "webuser", "-c", "php artisan queue:work --tries=3"]

@@ -4,6 +4,7 @@ name: slipstream
 services:
     app:
         container_name: Slipstream
+        image: slipstream:latest
         build:
             context: .
             dockerfile: Dockerfile
@@ -15,9 +16,10 @@ services:
             DB_HOST: slipstream-db
             DB_PASSWORD: yoursecretdbpass
         volumes:
-            - ./.env:/var/www/html/.env # .env File
-            - ./teststorage/app:/var/www/html/storage/app # App folder
-            - ./teststorage/logs:/var/www/html/storage/logs # Logs
+            - ./:/var/www/html
+#            - ./.env:/var/www/html/.env # .env File
+#            - ./teststorage/app:/var/www/html/storage/app # App folder
+#            - ./teststorage/logs:/var/www/html/storage/logs # Logs
         networks:
             - slipstream_network
 
