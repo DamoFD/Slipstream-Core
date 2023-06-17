@@ -8,10 +8,6 @@
     <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @livewireStyles
-
 </head>
     <body class="antialiased bg-background-surface font-brand font-light bg-neutral-900">
 
